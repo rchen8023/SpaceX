@@ -1,19 +1,44 @@
-import React, {Component} from "react";
-import { Button } from "antd";
+import React, {Component} from 'react';
+import { List, Avatar, Button, Checkbox, Spin } from 'antd';
+import satellite from "../assets/images/satellite.svg";
 
 class SatelliteList extends Component {
   render() {
-      return (
-          <div className="sat-list-box">
-              <div className="btn-container">
-                  <Button
-                      className="sat-list-btn"
-                  >Track on the map</Button>
-              </div>
-              <hr/>
-              <div>data</div>
-          </div>
-      );
+    const satList = this.props.satInfo ? this.props.satInfo.above : [];
+    const { isLoad } = this.props;
+
+    return (
+      <div className="sat-list-box">
+        <Button className="sat-list-btn" type="primary">Track</Button>
+        <hr/>
+
+        {
+          isLoad ?
+            <div className="spin-box">
+              <Spin tip="Loading..." size="large" />
+            </div>
+            :
+            <List
+              className="sat-list"
+              itemLayout="horizontal"
+              size="small"
+              dataSource={satList}
+              renderItem={item => (
+                <List.Item
+                  actions={[<Checkbox dataInfo={item} onChange={this.onChange}/>]}
+                >
+                  <List.Item.Meta
+                    avatar={<Avatar size={50} src={satellite} />}
+                    title={<p>{item.satname}</p>}
+                    description={`Launch Date: ${item.launchDate}`}
+                  />
+
+                </List.Item>
+              )}
+            />
+        }
+      </div>
+    );
   }
 }
 
