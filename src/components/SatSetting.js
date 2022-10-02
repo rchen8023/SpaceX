@@ -12,7 +12,7 @@ class SatSetting extends Component {
             <Form
                 name="wrap"
                 labelCol={{
-                    flex: '110px',
+                    flex: '150px',
                 }}
                 labelAlign="left"
                 labelWrap
