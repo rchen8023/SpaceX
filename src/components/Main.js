@@ -47,6 +47,9 @@ class Main extends Component {
             })
     }
 
+    showMap = (data) => {
+        console.log("show on the map -> ", data);
+    }
 
     render() {
         const { satInfo, isLoadingList, satList, setting } = this.state;
@@ -55,7 +58,7 @@ class Main extends Component {
             <Row className='main'>
                 <Col span={8} className="left-side">
                     <SatSetting onShow={this.showNearbySatellite}/>
-                    <SatelliteList satInfo={satInfo} isLoad={isLoadingList}/>
+                    <SatelliteList satInfo={satInfo} isLoad={isLoadingList} onShowMap={this.showMap}/>
                 </Col>
                 <Col span={16} className="right-side">
                     right
