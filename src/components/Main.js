@@ -5,6 +5,7 @@ import axios from 'axios';
 import SatSetting from './SatSetting';
 import SatelliteList from './SatelliteList';
 import {SAT_API_KEY, BASE_URL, NEARBY_SATELLITE, STARLINK_CATEGORY} from "../constants";
+import WorldMap from './WorldMap';
 
 class Main extends Component {
     state = {
@@ -61,7 +62,7 @@ class Main extends Component {
                     <SatelliteList satInfo={satInfo} isLoad={isLoadingList} onShowMap={this.showMap}/>
                 </Col>
                 <Col span={16} className="right-side">
-                    right
+                    <WorldMap />
                 </Col>
             </Row>
         );
