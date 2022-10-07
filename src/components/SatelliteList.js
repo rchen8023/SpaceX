@@ -15,7 +15,7 @@ class SatelliteList extends Component {
   }
 
   addOrRemove = (item, status, list) => {
-    const found = list.some((entry) => entry.satid == item.satid);
+    const found = list.some((entry) => entry.satid === item.satid);
     if(status && !found) {
       list = [...list, item];
     }

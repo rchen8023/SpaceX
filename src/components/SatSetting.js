@@ -90,7 +90,7 @@ class SatSetting extends Component {
                 </Form.Item>
 
                 <Form.Item
-                    label="Duration(secs)"
+                    label="Duration(mins)"
                     name="duration"
                     rules={[
                         {
